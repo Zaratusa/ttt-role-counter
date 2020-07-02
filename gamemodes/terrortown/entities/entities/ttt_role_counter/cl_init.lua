@@ -26,7 +26,7 @@ net.Receive("TTT_RoleCount_Start", function()
 		color_white, " this round!"
 	)
 
-	if (spectators != 1) then
+	if (spectators ~= 1) then
 		chat.AddText(
 			roles[ROLE_SPECTATOR].color, spectators .. " players",
 			color_white, " are spectating the Trouble in this Terrorist Town."
@@ -69,7 +69,7 @@ local function PrintToChat(role, alive, endtext)
 		starttext = starttext .. "n"
 	end
 
-	if (alive != nil) then
+	if (alive ~= nil) then
 		if (alive) then
 			endtext = endtext .. "he was still alive."
 		else

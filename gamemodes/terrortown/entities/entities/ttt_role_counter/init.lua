@@ -86,7 +86,7 @@ hook.Add("Think", "TTT_CheckForceSpectator", function()
 		for _, ply in pairs(player.GetAll()) do
 			if (ply:GetForceSpec()) then
 				local index = ply:EntIndex()
-				if (plyInRound[index] != nil) then
+				if (plyInRound[index] ~= nil) then
 					plyInRound[index] = nil
 
 					net.Start("TTT_RoleCount_Spectate")
@@ -101,7 +101,7 @@ end)
 hook.Add("PlayerDisconnected", "TTT_RoleCount_Leave", function(ply)
 	if (GetRoundState() == ROUND_ACTIVE) then
 		local index = ply:EntIndex()
-		if (plyInRound[index] != nil) then
+		if (plyInRound[index] ~= nil) then
 			plyInRound[index] = nil
 
 			net.Start("TTT_RoleCount_Leave")
